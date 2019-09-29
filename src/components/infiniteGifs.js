@@ -10,6 +10,7 @@ const GifGallery = ({
   loading,
   fetchGifs
 }) => {
+  
   // Create gallery here
   return (
     <InfiniteScroll 
@@ -35,20 +36,18 @@ const GifGallery = ({
 }
 
 const InfiniteGifs = (props) => {
-  console.log("SEND HEPL",props.term)
   // I can has state
   const [gifs, setGifs] = useState([])
   const [loading, setLoading] = useState(true)
-  const searchTerm = props.term
-
+  
   // Lets grab those GIFS!
   useEffect(() => {
     fetchGifs()
-  }, [])
+  }, [props.term])
 
   // Fetch Gifs from NETLIFY functions
   const fetchGifs = () => {
-    axios("/.netlify/functions/fetch", {params: searchTerm}).then(res => {
+    axios("/.netlify/functions/fetch", {params: props.term}).then(res => {
       setGifs([...gifs, ...res.data.gifs.data])
       setLoading(false)
     })
