@@ -41,12 +41,12 @@ const InfiniteGifs = () => {
 
   // Lets grab those GIFS!
   useEffect(() => {
-    fetchGifs()
+    fetchGifs("100 coffees")
   }, [])
 
   // Fetch Gifs from NETLIFY functions
-  const fetchGifs = () => {
-    axios("/.netlify/functions/fetch").then(res => {
+  const fetchGifs = (searchTerm) => {
+    axios("/.netlify/functions/fetch", {params: searchTerm}).then(res => {
       setGifs([...gifs, ...res.data.gifs.data])
       setLoading(false)
     })
