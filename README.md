@@ -17,3 +17,12 @@
  #### will run lamda server on `localhost:9000`
 
  ## View deplyed version [HERE](romantic-mirzakhani-5acfe9.netlify.com)
+
+
+ ## Issues
+ Search value only gets applied after infinite scroll load
+
+ ## Todo
+ More better styling
+ Animate header (thinking material UI icon to full width)
+ Click on gif to copy link to clipboard

@@ -15,7 +15,6 @@
   color: #363636;
   cursor: pointer;
   justify-content: center;
-  padding: 1rem;
   text-align: center;
   white-space: nowrap;
   transition: all 250ms ease-in;
@@ -27,4 +26,6 @@
 
 .button > a {
   color: #363636;
+  display: block;
+  width: 5rem;
 }
