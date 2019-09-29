@@ -7,4 +7,11 @@
  - react infinite-scroll
 
  ### Get up and running
- ``` npm start```
+ ``` bash 
+ npm start
+ ```
+ #### Will run Client on `localhost:8000`
+ ``` bash
+ netlify-lambda serve src/lambda
+ ```
+ #### will run lamda server on `localhost:9000`

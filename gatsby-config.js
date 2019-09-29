@@ -1,8 +1,21 @@
+let proxy = require("http-proxy-middleware")
+
 module.exports = {
   siteMetadata: {
     title: `Giphy Monster`,
     description: `Gif search application using thr Giphy Search API`,
     author: `@ginstant-coffee`,
+  },
+  developMiddleware: app => {
+    app.use(
+      "/.netlify/functions/",
+      proxy({
+        target: "http://localhost:9000",
+        pathRewrite: {
+          "/.netlify/functions/": ""
+        },
+      })
+    )
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
