@@ -34,35 +34,25 @@ const GifGallery = ({
   )
 }
 
-const InfiniteGifs = () => {
+const InfiniteGifs = (props) => {
+  console.log("SEND HEPL",props.term)
   // I can has state
   const [gifs, setGifs] = useState([])
   const [loading, setLoading] = useState(true)
+  const searchTerm = props.term
 
   // Lets grab those GIFS!
   useEffect(() => {
-    fetchGifs("100 coffees")
+    fetchGifs()
   }, [])
 
   // Fetch Gifs from NETLIFY functions
-  const fetchGifs = (searchTerm) => {
+  const fetchGifs = () => {
     axios("/.netlify/functions/fetch", {params: searchTerm}).then(res => {
       setGifs([...gifs, ...res.data.gifs.data])
       setLoading(false)
     })
   }
-
-
-  // GIPHY API endpoint
-  // const gifEndpoint = ""
-
-  // Fetch all the gifs please
-  // const fetchGifs = () => {
-  //   axios(gifEndpoint).then(res => {
-  //     setGifs([...gifs, ...res.data.gifs])
-  //     setLoading(false)
-  //   })
-  // }
 
   return ( 
     <GifGallery gifs={gifs} loading={loading} fetchGifs={fetchGifs}/>

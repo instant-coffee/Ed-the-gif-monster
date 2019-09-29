@@ -1,18 +1,25 @@
-import React from "react"
+import React, {useState} from "react"
 // import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import InfiniteGifs from '../components/infiniteGifs'
+import SearchBar from '../components/searchBar'
 
-const Gallery = () => (
-  <Layout>
-    <SEO title="Gallery" />
-    <h1>Infinite Gifs</h1>
-    <InfiniteGifs />
+const Gallery = () => {
+  const [search, setSearch] = useState('')
+  const handleTermChange = (term) => {
+    setSearch(term)
+  }
 
-    {/* <Link to="/">Go back to the homepage</Link> */}
-  </Layout>
-)
+  return (
+    <Layout>
+      <SEO title="Gallery" />
+      <SearchBar onTermChange={handleTermChange} />
+      <InfiniteGifs term={ search } />
 
+      {/* <Link to="/">Go back to the homepage</Link> */}
+    </Layout>
+  )
+}
 export default Gallery
