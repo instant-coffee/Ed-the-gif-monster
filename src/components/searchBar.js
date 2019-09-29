@@ -11,7 +11,7 @@ const SearchBar = (props) => {
 
   return (
     <div className="searchbar">
-      <input onChange={event => inputChangeHandler(event.target.value)} />
+      <input placeholder="Search for all the gifs" onChange={event => inputChangeHandler(event.target.value)} />
     </div>
   )
 }
