@@ -16,7 +16,7 @@
  ```
  #### will run lamda server on `localhost:9000`
 
- ## View deplyed version [HERE](romantic-mirzakhani-5acfe9.netlify.com)
+ ## View deplyed version [HERE](http://romantic-mirzakhani-5acfe9.netlify.com)
 
 
  ## Issues
